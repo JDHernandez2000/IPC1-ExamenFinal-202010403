@@ -100,9 +100,33 @@ public class Final {
          });
         men.jButton3.addActionListener(new ActionListener()
          {
+             Vacas[] vacas;
              @Override
              public void actionPerformed(ActionEvent actionEvent)
              {
+                 System.out.println("Ingrese el numero de vacas a la venta");
+                 int n = scan.nextInt();
+                 vacas = new Vacas[n];
+                 System.out.println("Ingrese los pesos de las vacas por comas");
+                 String p = scan.next();
+                 String[] pesos = p.split(",");
+                 for(int i = 0; i < n; i++)
+                 {
+                     vacas[i] = new Vacas();
+                     vacas[i].peso = Integer.parseInt(pesos[i]);
+                 }
+                 System.out.println("Ingrese la cantidad de leche que da una"
+                         + " vaca al dia separada por comas");
+                 String l = scan.next();
+                 String[] leches = l.split(",");
+                 for(int i = 0; i < n; i++)
+                 {
+                     vacas[i].leche = Integer.parseInt(leches[i]);
+                 }
+                System.out.println("Ingrese el numero de kg que soporta el "
+                        + "camion redondeado al entero ams cercano");
+                int kg = scan.nextInt();
+                 
              }
          });
       
