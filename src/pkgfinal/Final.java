@@ -126,9 +126,35 @@ public class Final {
                 System.out.println("Ingrese el numero de kg que soporta el "
                         + "camion redondeado al entero ams cercano");
                 int kg = scan.nextInt();
-                 
+                bubbleSort(vacas);
+                System.out.println("");
+                int sumaP = 0;
+                int sumaL = 0;
+                for(int i = 0; i < vacas.length; i++){
+                    sumaP += vacas[i].peso;
+                    sumaL += vacas[i].leche;
+                }
+                int i = 0;
+                while(sumaP > kg){
+                    sumaP = sumaP - vacas[i].peso;
+                    sumaL = sumaL - vacas[i].leche;
+                    i++;
+                }
+                System.out.println("La leche maxima a producir es: " + String.valueOf(sumaL));
              }
          });
-      
+    
+    }
+    public static void bubbleSort(Vacas arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j].leche > arr[j + 1].leche) {
+                    // swap arr[j+1] and arr[j]
+                    Vacas temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
     }
 }
